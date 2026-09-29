@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyHttpServer", "MyHttpServer\MyHttpServer.csproj", "{737C9F75-A011-4546-A19B-1A9F2E0C2491}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{737C9F75-A011-4546-A19B-1A9F2E0C2491}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737C9F75-A011-4546-A19B-1A9F2E0C2491}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737C9F75-A011-4546-A19B-1A9F2E0C2491}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737C9F75-A011-4546-A19B-1A9F2E0C2491}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
