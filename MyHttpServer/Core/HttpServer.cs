@@ -37,16 +37,16 @@ public sealed class HttpServer : IDisposable
 
     public async Task StartAsync()
     {
-        string htmlPath = Path.Combine(
+        string searchPagePath = Path.Combine(
             _staticDirectory,
             "search-engine.html"
         );
 
-        if (!File.Exists(htmlPath))
+        if (!File.Exists(searchPagePath))
         {
             throw new FileNotFoundException(
                 "Файл search-engine.html не найден.",
-                htmlPath
+                searchPagePath
             );
         }
 
@@ -149,6 +149,7 @@ public sealed class HttpServer : IDisposable
 
         string urlPath = request.Url?.AbsolutePath ?? "";
 
+        // Главный адрес: /connection/
         if (urlPath == _basePath)
         {
             string htmlPath = Path.Combine(
@@ -165,6 +166,24 @@ public sealed class HttpServer : IDisposable
             return;
         }
 
+        // Вторая страница: /connection/rockstargames.html
+        if (urlPath == _basePath + "rockstargames.html")
+        {
+            string htmlPath = Path.Combine(
+                _staticDirectory,
+                "rockstargames.html"
+            );
+
+            await SendFileAsync(
+                response,
+                htmlPath,
+                "text/html; charset=utf-8"
+            );
+
+            return;
+        }
+
+        // Картинки поисковой страницы: /connection/images/...
         string imagesPrefix = _basePath + "images/";
 
         if (urlPath.StartsWith(

@@ -23,7 +23,7 @@
             min-height: 100vh;
         }
 
-        /* Погода справа сверху */
+       
         .weather {
             position: absolute;
             top: 16px;
@@ -44,7 +44,7 @@
             font-weight: 700;
         }
 
-        /* Основное содержимое страницы */
+    
         .content {
             position: absolute;
             top: 34%;
@@ -70,7 +70,7 @@
             font-weight: 700;
         }
 
-        /* Поле поиска — только внешний вид */
+       
         .search {
             display: flex;
             align-items: center;
@@ -110,7 +110,7 @@
             font-size: 17px;
         }
 
-        /* Ярлыки: сами изображения взяты из Figma */
+   
         .shortcuts {
             display: flex;
             align-items: center;
@@ -126,7 +126,7 @@
             object-fit: contain;
         }
 
-        /* Плюс нарисован отдельно: файла для него пока нет */
+       
         .add-shortcut {
             position: relative;
             width: 55px;
@@ -157,7 +157,7 @@
             height: 18px;
         }
 
-        /* Вид на телефоне */
+        
         @media (max-width: 600px) {
             .weather {
                 top: 28px;
@@ -223,14 +223,14 @@
                 flex: 0 1 auto;
             }
 
-            /* На мобильном макете показаны только первые пять значков */
+        
             .shortcuts img:nth-child(n+6),
             .add-shortcut {
                 display: none;
             }
         }
 
-        /* Чтобы на невысоком телефоне поиск не уезжал за экран */
+        
         @media (max-width: 600px) and (max-height: 800px) {
             .content {
                 top: 30%;
