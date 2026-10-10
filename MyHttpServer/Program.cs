@@ -1,4 +1,5 @@
-﻿using MyHttpServer.Configuration;
+﻿using System.Diagnostics;
+using MyHttpServer.Configuration;
 using MyHttpServer.Core;
 
 try
@@ -9,23 +10,54 @@ try
 
     Task serverTask = server.StartAsync();
 
-    while (!serverTask.IsCompleted)
+    
+    if (serverTask.IsCompleted)
     {
-        string? command = Console.ReadLine();
-
-        if (command is null ||
-            command.Trim().Equals("stop", StringComparison.OrdinalIgnoreCase))
+        await serverTask;
+    }
+    else
+    {
+        try
         {
-            server.Stop();
-            break;
+            Process.Start(new ProcessStartInfo
+            {
+                FileName = server.Address,
+                UseShellExecute = true
+            });
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(
+                $"Не удалось открыть браузер: {ex.Message}"
+            );
+
+            Console.WriteLine(
+                $"Откройте адрес вручную: {server.Address}"
+            );
         }
 
-        Console.WriteLine("Введите stop для остановки сервера.");
-    }
+        while (!serverTask.IsCompleted)
+        {
+            string? command = Console.ReadLine();
 
-    await serverTask;
+            if (command is null ||
+                command.Trim().Equals(
+                    "stop",
+                    StringComparison.OrdinalIgnoreCase))
+            {
+                server.Stop();
+                break;
+            }
+
+            Console.WriteLine(
+                "Введите stop для остановки сервера."
+            );
+        }
+
+        await serverTask;
+    }
 }
 catch (Exception ex)
 {
-    Console.WriteLine($"Ошибка: {ex.Message}");
+    Console.WriteLine($"Ошибка: {ex.GetBaseException().Message}");
 }

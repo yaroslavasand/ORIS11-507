@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login Form</title>
+
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet"
+          type="text/css"
+          href="/connection/login-page/style.css">
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 d-none d-md-block image-container"></div>
+
+        <div class="col-lg-6 col-md-6 form-container">
+            <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+
+                <div class="logo mb-3">
+                    <img src="/connection/login-page/image/logo.png"
+                         width="150"
+                         alt="Logo">
+                </div>
+
+                <div class="heading mb-4">
+                    <h4>Login into your account</h4>
+                </div>
+
+                <form method="post"
+                      action="/connection/auth/login"
+                      accept-charset="UTF-8">
+
+                    <div class="form-input">
+                            <span>
+                                <i class="fa fa-envelope"
+                                   aria-hidden="true"></i>
+                            </span>
+
+                        <input type="email"
+                               name="email"
+                               placeholder="Email Address"
+                               aria-label="Email Address"
+                               required>
+                    </div>
+
+                    <div class="form-input">
+                            <span>
+                                <i class="fa fa-lock"
+                                   aria-hidden="true"></i>
+                            </span>
+
+                        <input type="password"
+                               name="password"
+                               placeholder="Password"
+                               aria-label="Password"
+                               required>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-6 d-flex">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox"
+                                       class="custom-control-input"
+                                       id="remember-me">
+
+                                <label class="custom-control-label text-white"
+                                       for="remember-me">
+                                    Remember me
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="col-6 text-right">
+                            <a href="/connection/login-page/forget.html"
+                               class="forget-link">
+                                Forget Password
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="text-left mb-3">
+                        <button type="submit" class="btn">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center mb-2">
+                        <div class="mb-3" style="color: #777">
+                            or login with
+                        </div>
+
+                        <button type="button"
+                                class="btn btn-social btn-facebook"
+                                disabled>
+                            facebook
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-social btn-google"
+                                disabled>
+                            google
+                        </button>
+
+                        <button type="button"
+                                class="btn btn-social btn-twitter"
+                                disabled>
+                            twitter
+                        </button>
+                    </div>
+
+                    <div style="color: #777">
+                        Don't have an account
+
+                        <a href="/connection/login-page/register.html"
+                           class="register-link">
+                            Register here
+                        </a>
+                    </div>
+
+                    <p class="text-white mt-3">
+                        Учебная форма. Используйте только выдуманные данные.
+                        Вход через социальные сети не подключён.
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
