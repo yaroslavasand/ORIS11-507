@@ -8,6 +8,8 @@ public sealed class HttpResult
     private readonly byte[] _body;
     private readonly string _contentType;
     private readonly int _statusCode;
+    
+    public int StatusCode => _statusCode;
 
     private HttpResult(
         byte[] body,

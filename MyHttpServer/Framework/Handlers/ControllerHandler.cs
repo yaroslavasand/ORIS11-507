@@ -222,12 +222,17 @@ public sealed class ControllerHandler : Handler
                 return;
             }
         }
-
+        
         object controller = Activator.CreateInstance(controllerType)
-            ?? throw new InvalidOperationException(
-                "Не удалось создать контроллер."
-            );
-
+                            ?? throw new InvalidOperationException(
+                                "Не удалось создать контроллер."
+                            );
+        
+        if (controller is ControllerBase controllerBase)
+        {
+            controllerBase.SetContext(context);
+        }
+        
         object? result = method.Invoke(controller, arguments);
 
         
